@@ -2,14 +2,13 @@ AZGS NGCMP09 ArcMap Toolbar version 10.4
 June 15, 2018
 GH
 
-Development Environment
+New Development Environment needed for 10.4
 
 Visual Studio 2015 
 Visual Studion 2013 Isolate_shell - need the 64bit version !
 vd_isohellLP - Language Pack
-
 Microsoft .NET Framework 4.5.2
-ArcObjects SDK 10.4
+ArcObjects SDK 10.4 - also VS project templates is a separate load
 
 How to perform a Build into a new version
 

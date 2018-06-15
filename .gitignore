@@ -11,7 +11,6 @@
 *.userprefs
 
 # Build results
-[Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
@@ -239,3 +238,20 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/ncgmpToolbar/bin/Debug/ESRI.ArcGIS.Geometry.xml
+/ncgmpToolbar/bin/Debug/ESRI.ArcGIS.Geometry.dll
+/ncgmpToolbar/bin/Debug/ESRI.ArcGIS.GeoDatabaseDistributed.xml
+/ncgmpToolbar/bin/Debug/ESRI.ArcGIS.GeoDatabaseDistributed.dll
+/ncgmpToolbar/bin/Debug/ESRI.ArcGIS.Geodatabase.xml
+/ncgmpToolbar/bin/Debug/ESRI.ArcGIS.Geodatabase.dll
+/ncgmpToolbar/bin/Debug/ESRI.ArcGIS.Display.xml
+/ncgmpToolbar/bin/Debug/ESRI.ArcGIS.Display.dll
+/ncgmpToolbar/bin/Debug/ESRI.ArcGIS.DataSourcesGDB.xml
+/ncgmpToolbar/bin/Debug/ESRI.ArcGIS.DataSourcesGDB.dll
+/ncgmpToolbar/bin/Debug/ESRI.ArcGIS.CatalogUI.xml
+/ncgmpToolbar/bin/Debug/ESRI.ArcGIS.CatalogUI.dll
+/ncgmpToolbar/bin/Debug/ESRI.ArcGIS.Catalog.xml
+/ncgmpToolbar/bin/Debug/ESRI.ArcGIS.Catalog.dll
+/ncgmpToolbar/bin/Debug/ESRI.ArcGIS.Carto.xml
+/ncgmpToolbar/bin/Debug/ESRI.ArcGIS.Carto.dll
+/ncgmpToolbar/bin/Debug/stdole.dll

@@ -1,8 +1,8 @@
-﻿#AZGS NCGMP Toolbar
+### AZGS NCGMP Toolbar
 
 This toolbar was developed by the Arizona Geological Survey (AZGS) for use in geologic map production using the NCGMP09 database schema and ESRI ArcGIS software. It is an ArcGIS AddIn for ArcMap. The AddIn presents the user with a toolbar that the geologist can use to perform various geologic map compilation functions.
 
-###NCGMP Toolbar Functions 
+### NCGMP Toolbar Functions 
 **Opening an existing NCGMP09 database**: The AddIn will only open a geologic map database created with one of the create database tools in the Geologic Mapping Toolset ArcGIS Toolbox. 
 
 **Creating and Managing Data Sources**: The toolbar provides a simple window for creating, managing and selecting data sources for individual or groups of features. 
@@ -53,5 +53,41 @@ Prerequisties: **ArcObjects SDK** (from the ArcGIS installation disc) and **Visu
 5. Click **Debug**, **Start Debugging** (This will build the **NCGMPToolbar.esriAddIn** in the **/bin/Debug** folder)
 6. Error logs are written to `C:\Users\<user name>\AppData\Local\Temp\NCGMPToolbarLog.txt`
 
+### New Version Release Notes
+**Development Environment**
+- Visual Studio 2015 
+- Visual Studion 2013 Isolate_shell - need the 64bit version !
+- vd_isohellLP - Language Pack
+- Microsoft .NET Framework 4.5.2
+- ArcObjects SDK 10.4
+
+**How to perform a build into a new version**
+The ESRI version upgrade procedures do not work for this tool. Much cleaner to build a new project from scatch as follows:
+- Create a new project with same name - set the project temple as ArcMap Add-In. Set the .NET Framework to 4.52 (or higher)
+- Manually add all ESRI and system references need for project. Set the Embedded Interop Property to false
+ for each one. 
+- Add new resource file in default project location.
+- Create new folders for Image and Cursor resources - add all files to project.
+- Create new folders for Forms and Utilities. 
+- Add Form and Utility code files to project - Add .cs files only to project, let the Visual studio build
+  the designer and resource files.
+- Create all ESRI Add-in Widgets from scratch. Start from the bottom up, build the containers (menus, toolbar, editor) last. 
+  Add image and cursor references in the the ESRI wizard, (its hard to fix after you build) to get the resources properly loaded.
+- Name all widgets the same as previous version, then cut and paste executable code into new code files. 
+- Do not modify new Assembly, designer, resource or config files, let system manage this. The Config.esriaddinx can be modified..
+- If you do have to make resource modifications, note that this version of Visual Studio has a bug.  Keep the Resources.Designer.cs file open as you making changes, and they will get updated (not 100% reliable, may had to add and delete a coule times to get them to take).
+
+**Debug**
+- After each change, must do a project build, unload add-in in ArcMap, reload, then in visual studio, attach to arcmap process.  This
+  version of Visual studio, cannot start the process within the debugger.
+
+**Page Layout Fixes**
+- Toolbar Bug - SysInfo table does not get updated correctly when error occurs, causing subsequent failures.  sysInfo should have
+  Next ID to use for each table, and it the ID should be gretaer than   all exisitng records for the table.
+- Identified PageLayout Bug in 10.4 Fixed with DLL Hack. 
+- Design Flaw in toolbar for layout.  The graphics  objects were created in an editor session, they do not get completed
+  moved out of the editor thread when closing and saving, leading to crashes.  By turning off events and unslectin all created
+  objects minimize this problem, but not entirely fixed.  This part of the code should be rewritten to not use
+  the editor for these functions.  Maybe in the next version...
 ### Prior Toolbar Version
-The original AZGS NCGMP Toolbar used an AZGS-modified version of the NCGMP schema. This toolbar is available by selecting the Tag **v0.9.9.2**.
+The original AZGS NCGMP Toolbar used an AZGS-modified version of the NCGMP schema. This toolbar is available by selecting the Tag **v0.10.2.2**.
